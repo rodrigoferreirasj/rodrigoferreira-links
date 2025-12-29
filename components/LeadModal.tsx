@@ -1,12 +1,14 @@
+
 import React, { useState } from 'react';
 
 interface LeadModalProps {
   isOpen: boolean;
   onClose: () => void;
   adminEmail: string;
+  evento: string;
 }
 
-export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, adminEmail }) => {
+export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, adminEmail, evento }) => {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -90,8 +92,9 @@ END:VCARD`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          Evento: evento, // Campo solicitado derivado do parâmetro 'id' da URL
           _to: adminEmail,
-          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa})`
+          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa}) - Origem: ${evento}`
         })
       });
 
@@ -101,7 +104,7 @@ END:VCARD`;
           onClose();
         }, 2500);
       } else {
-        const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}`;
+        const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}%0D%0A- Evento: ${evento}`;
         window.location.href = `mailto:${adminEmail}?subject=Captura de Lead - Linktree&body=${body}`;
         onClose();
       }
