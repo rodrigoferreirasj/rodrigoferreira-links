@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { SECTIONS } from './constants';
 import { LinkCard } from './components/LinkCard';
@@ -6,6 +7,27 @@ import { LeadModal } from './components/LeadModal';
 const App: React.FC = () => {
   const [imgSrc, setImgSrc] = useState("https://i.ibb.co/gbtRmLVc/Avatar.png");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Função auxiliar para obter e formatar o evento da URL imediatamente
+  const getEventoFromURL = () => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawId = urlParams.get('id');
+      if (!rawId) return 'Acesso Direto';
+      
+      return decodeURIComponent(rawId)
+        .trim()
+        .split(/[\s%20]+/)
+        .filter(Boolean)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+    } catch (e) {
+      return 'Acesso Direto';
+    }
+  };
+
+  // Inicializa o estado diretamente com o valor da URL
+  const [evento] = useState(getEventoFromURL());
 
   useEffect(() => {
     // Abre o modal após um pequeno delay para suavidade
@@ -68,6 +90,7 @@ const App: React.FC = () => {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         adminEmail="rodrigo@pontosfortes.com.br"
+        evento={evento}
       />
 
       <div className="max-w-md mx-auto px-5 pt-12 flex flex-col gap-8 w-full relative">

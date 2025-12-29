@@ -46,7 +46,6 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, adminEmai
   };
 
   const handleSaveContact = () => {
-    // Dados completos do Rodrígo para o VCard com Foto e Social Links
     const photoUrl = "https://i.ibb.co/gbtRmLVc/Avatar.png";
     const whatsappLink = "https://wa.me/message/MSEY7GX6C4W7I1";
 
@@ -86,15 +85,18 @@ END:VCARD`;
     e.preventDefault();
     setStatus('sending');
 
+    // Garante que o evento seja uma string válida antes de enviar
+    const currentEvento = evento || 'Acesso Direto';
+
     try {
       const response = await fetch(`https://formspree.io/f/mnjqllrj`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          Evento: evento, // Campo solicitado derivado do parâmetro 'id' da URL
+          Evento: currentEvento,
           _to: adminEmail,
-          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa}) - Origem: ${evento}`
+          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa}) - Origem: ${currentEvento}`
         })
       });
 
@@ -104,14 +106,13 @@ END:VCARD`;
           onClose();
         }, 2500);
       } else {
-        const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}%0D%0A- Evento: ${evento}`;
-        window.location.href = `mailto:${adminEmail}?subject=Captura de Lead - Linktree&body=${body}`;
-        onClose();
+        throw new Error('Formspree error');
       }
     } catch (error) {
       console.error("Erro ao enviar lead:", error);
-      setStatus('idle');
-      alert("Ocorreu um problema ao enviar. Por favor, tente novamente.");
+      const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}%0D%0A- Evento: ${currentEvento}`;
+      window.location.href = `mailto:${adminEmail}?subject=Captura de Lead - Linktree&body=${body}`;
+      onClose();
     }
   };
 
