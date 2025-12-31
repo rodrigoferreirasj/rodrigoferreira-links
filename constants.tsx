@@ -98,6 +98,31 @@ export const SECTIONS: Section[] = [
     ]
   },
   {
+    title: "MATERIAIS",
+    items: [
+      {
+        id: "book_commodities",
+        badge: "LIVRO",
+        badgeColor: "bg-badge-clients",
+        title: "Commodities: como ter sucesso vendendo",
+        description: "Aplicação prática no dia a dia comercial",
+        image: "https://i.ibb.co/k2dPYgyy/4f83172a-4be5-4a30-9665-5a5389ad66cf.jpg",
+        url: "https://loja.uiclap.com/titulo/ua48810",
+        type: 'medium'
+      },
+      {
+        id: "ebook_digital",
+        badge: "E-BOOK",
+        badgeColor: "bg-badge-content",
+        title: "Commodities: 10 dicas práticas para vender",
+        description: "Um ebook essencial para todo vendedor",
+        image: "https://i.ibb.co/svTnCb8J/Capa-Livro-Commodities-v03-c-pia-small.png",
+        url: "https://subscribepage.io/commodities",
+        type: 'medium'
+      }
+    ]
+  },
+  {
     title: "FERRAMENTAS & APPS",
     items: [
       {
@@ -159,31 +184,6 @@ export const SECTIONS: Section[] = [
         image: "https://cdn-icons-png.flaticon.com/512/2950/2950137.png",
         url: "https://wellbeingcompass.vercel.app",
         type: 'tool'
-      }
-    ]
-  },
-  {
-    title: "MATERIAIS",
-    items: [
-      {
-        id: "book_commodities",
-        badge: "LIVRO",
-        badgeColor: "bg-badge-clients",
-        title: "Commodities: como ter sucesso vendendo",
-        description: "Aplicação prática no dia a dia comercial",
-        image: "https://i.ibb.co/k2dPYgyy/4f83172a-4be5-4a30-9665-5a5389ad66cf.jpg",
-        url: "https://loja.uiclap.com/titulo/ua48810",
-        type: 'medium'
-      },
-      {
-        id: "ebook_digital",
-        badge: "E-BOOK",
-        badgeColor: "bg-badge-content",
-        title: "Commodities: 10 dicas práticas para vender",
-        description: "Um ebook essencial para todo vendedor",
-        image: "https://i.ibb.co/svTnCb8J/Capa-Livro-Commodities-v03-c-pia-small.png",
-        url: "https://subscribepage.io/commodities",
-        type: 'medium'
       }
     ]
   }
