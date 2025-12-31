@@ -111,53 +111,43 @@ export const SECTIONS: Section[] = [
         type: 'tool'
       },
       {
-        id: "tool_pdi",
-        badge: "FERRAMENTA",
-        badgeColor: "text-badge-tool",
-        title: "PDI de Vendas",
-        description: "Transforme diagnóstico em plano de ação",
-        image: "https://cdn-icons-png.flaticon.com/512/4214/4214107.png",
-        url: "https://studio--sales-action-planner.us-central1.hosted.app",
-        type: 'tool'
-      },
-      {
         id: "tool_tki",
         badge: "FERRAMENTA",
         badgeColor: "text-badge-tool",
         title: "Teste de Conflitos (TKI)",
         description: "Entenda como você reage a conflitos",
         image: "https://cdn-icons-png.flaticon.com/512/4112/4112613.png",
-        url: "https://studio--tki-insights.us-central1.hosted.app",
+        url: "https://assessment-tki.vercel.app/",
         type: 'tool'
       },
       {
         id: "tool_listening",
-        badge: "FERRAMENTA",
+        badge: "TEORIA U",
         badgeColor: "text-badge-tool",
         title: "Teste de Escuta Ativa",
         description: "Avalie sua capacidade de ouvir de verdade",
         image: "https://cdn-icons-png.flaticon.com/512/3232/3232333.png",
-        url: "https://active-listening-u.preview.emergentagent.com/",
+        url: "https://escuta-ativa-pontosfortes.vercel.app/",
         type: 'tool'
       },
       {
         id: "tool_comm",
-        badge: "FERRAMENTA",
+        badge: "Pulse+",
         badgeColor: "text-badge-tool",
         title: "Estilo & Qualidade da Comunicação",
         description: "Avalie seu impacto e clareza ao se comunicar",
         image: "https://cdn-icons-png.flaticon.com/512/2352/2352167.png",
-        url: "https://studio--commassess.us-central1.hosted.app",
+        url: "https://pulseplus-pontosfortes.vercel.app/",
         type: 'tool'
       },
       {
         id: "tool_triade",
-        badge: "FERRAMENTA",
+        badge: "Cronos+",
         badgeColor: "text-badge-tool",
         title: "Tríade do Tempo",
         description: "Diagnóstico de gestão do tempo e produtividade",
         image: "https://cdn-icons-png.flaticon.com/512/3563/3563456.png",
-        url: "https://studio--tempo-equilbrio.us-central1.hosted.app",
+        url: "https://cronosplus.vercel.app",
         type: 'tool'
       }
     ]
