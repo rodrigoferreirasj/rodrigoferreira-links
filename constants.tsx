@@ -107,7 +107,7 @@ export const SECTIONS: Section[] = [
         title: "Ferramenta de Valores",
         description: "Descubra o que guia suas decisões",
         image: "https://cdn-icons-png.flaticon.com/512/1162/1162499.png",
-        url: "https://pontosfortes-valores.netlify.app",
+        url: "https://pontosfortes-values.netlify.app",
         type: 'tool'
       },
       {
@@ -148,6 +148,16 @@ export const SECTIONS: Section[] = [
         description: "Diagnóstico de gestão do tempo e produtividade",
         image: "https://cdn-icons-png.flaticon.com/512/3563/3563456.png",
         url: "https://cronosplus.vercel.app",
+        type: 'tool'
+      },
+      {
+        id: "tool_wellbeing",
+        badge: "WELLBEING COMPASS",
+        badgeColor: "text-badge-tool",
+        title: "Roda da Vida",
+        description: "Roda da vida + 5 elementos do bem-estar",
+        image: "https://cdn-icons-png.flaticon.com/512/2950/2950137.png",
+        url: "https://wellbeingcompass.vercel.app",
         type: 'tool'
       }
     ]

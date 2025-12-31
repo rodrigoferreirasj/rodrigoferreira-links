@@ -30,10 +30,10 @@ const App: React.FC = () => {
   const [evento] = useState(getEventoFromURL());
 
   useEffect(() => {
-    // Abre o modal após um pequeno delay para suavidade
+    // Abre o modal após 3 segundos conforme solicitado
     const timer = setTimeout(() => {
       setIsModalOpen(true);
-    }, 1200);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
