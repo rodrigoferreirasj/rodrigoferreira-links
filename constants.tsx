@@ -184,6 +184,16 @@ export const SECTIONS: Section[] = [
         image: "https://cdn-icons-png.flaticon.com/512/2950/2950137.png",
         url: "https://wellbeingcompass.vercel.app",
         type: 'tool'
+      },
+      {
+        id: "tool_sales_plan",
+        badge: "SALES ACTION PLAN",
+        badgeColor: "text-badge-tool",
+        title: "PDI de Vendas Baseado em Pontos Fortes",
+        description: "Crie seu plano de ação de vendas",
+        image: "https://cdn-icons-png.flaticon.com/512/3222/3222672.png",
+        url: "https://sales-action-plan-pontosfortes.vercel.app",
+        type: 'tool'
       }
     ]
   }
