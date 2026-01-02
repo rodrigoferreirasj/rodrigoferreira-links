@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { LinkItem } from '../types';
 
 interface LinkCardProps {
@@ -7,21 +7,54 @@ interface LinkCardProps {
 }
 
 export const LinkCard: React.FC<LinkCardProps> = ({ item }) => {
-  // Helper para renderizar a imagem quadrada
+  const [imgError, setImgError] = useState(false);
+
+  // Helper para renderizar a imagem ou fallback
   const renderSquareImage = (sizeClasses: string, roundedClasses: string = "rounded-xl") => {
-    // Identifica se o item é um ícone/logo (geralmente com fundo transparente ou marca específica)
     const isIcon = ['podcast', 'youtube', 'whatsapp'].includes(item.id) || item.type === 'tool';
     
+    if (imgError || !item.image) {
+      // Fallback UI quando a imagem falha
+      const fallbackIcons: Record<string, string> = {
+        'podcast': 'podcasts',
+        'youtube': 'play_circle',
+        'whatsapp': 'chat',
+        'tool': 'apps',
+        'medium': 'description'
+      };
+      
+      const iconName = item.id === 'whatsapp' ? 'chat' : 
+                       item.badge === 'LIVRO' || item.badge === 'E-BOOK' ? 'auto_stories' :
+                       item.type === 'tool' ? 'settings_suggest' : 'link';
+
+      return (
+        <div className={`${sizeClasses} ${roundedClasses} bg-white/5 shrink-0 shadow-lg border border-white/10 flex items-center justify-center`}>
+          <span className="material-symbols-outlined text-white/20 text-2xl">
+            {iconName}
+          </span>
+        </div>
+      );
+    }
+
     return (
-      <div 
-        className={`${sizeClasses} ${roundedClasses} ${isIcon ? 'bg-white/10' : 'bg-white/5'} shrink-0 shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center overflow-hidden bg-center bg-no-repeat`} 
-        style={{ 
-          backgroundImage: `url('${item.image}')`,
-          backgroundSize: isIcon ? '70%' : 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}
-      />
+      <div className="relative shrink-0 group-hover:scale-105 transition-transform duration-300">
+        <div 
+          className={`${sizeClasses} ${roundedClasses} ${isIcon ? 'bg-white/10' : 'bg-white/5'} shrink-0 shadow-lg border border-white/10 flex items-center justify-center overflow-hidden bg-center bg-no-repeat`} 
+          style={{ 
+            backgroundImage: `url('${item.image}')`,
+            backgroundSize: isIcon ? '70%' : 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center'
+          }}
+        />
+        {/* Elemento invisível para capturar erro de carregamento da imagem de fundo */}
+        <img 
+          src={item.image} 
+          className="hidden" 
+          onError={() => setImgError(true)} 
+          alt=""
+        />
+      </div>
     );
   };
 
