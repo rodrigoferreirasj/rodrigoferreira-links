@@ -82,7 +82,7 @@ export const SECTIONS: Section[] = [
         title: "Assessment de Vendas",
         description: "Diagnóstico prático para performance comercial",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=250&h=250&auto=format&fit=crop",
-        url: "#",
+        url: "https://sales-ai-assessment.vercel.app",
         type: 'medium'
       },
       {
@@ -93,6 +93,16 @@ export const SECTIONS: Section[] = [
         description: "Clareza sobre estilo, impacto e desenvolvimento",
         image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=250&h=250&auto=format&fit=crop",
         url: "https://radarlideranca.vercel.app/",
+        type: 'medium'
+      },
+      {
+        id: "commercial_dept_assessment",
+        badge: "DIAGNÓSTICO",
+        badgeColor: "bg-badge-training",
+        title: "Assessment de Depto Comercial",
+        description: "Avalie o potencial oculto da sua operação comercial",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=250&h=250&auto=format&fit=crop",
+        url: "https://radardevendas360graus.lovable.app/?origem=linkscurtos",
         type: 'medium'
       }
     ]
@@ -132,7 +142,7 @@ export const SECTIONS: Section[] = [
         title: "Ferramenta de Valores",
         description: "Descubra o que guia suas decisões",
         image: "https://cdn-icons-png.flaticon.com/512/1162/1162499.png",
-        url: "https://pontosfortes-valores.netlify.app",
+        url: "https://pontosfortes-values.netlify.app",
         type: 'tool'
       },
       {
