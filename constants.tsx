@@ -204,6 +204,16 @@ export const SECTIONS: Section[] = [
         image: "https://cdn-icons-png.flaticon.com/512/3222/3222672.png",
         url: "https://sales-action-plan-pontosfortes.vercel.app",
         type: 'tool'
+      },
+      {
+        id: "tool_sales_matrix",
+        badge: "Sales Matrix Pro",
+        badgeColor: "text-badge-tool",
+        title: "Gestor de Carteira de Clientes",
+        description: "Gerencie seu portfólio de prospects e clientes",
+        image: "https://cdn-icons-png.flaticon.com/512/3201/3201558.png",
+        url: "https://sales-matrix-pontosfortes.vercel.app",
+        type: 'tool'
       }
     ]
   }
