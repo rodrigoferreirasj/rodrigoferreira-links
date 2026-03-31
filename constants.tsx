@@ -111,6 +111,17 @@ export const SECTIONS: Section[] = [
     title: "MATERIAIS",
     items: [
       {
+        id: "book_piloto",
+        badge: "LANÇAMENTO",
+        badgeColor: "bg-red-600",
+        title: "A Vida não é um Episódio Piloto",
+        description: "Como influência e comportamento definem resultados comerciais",
+        image: "https://storage.googleapis.com/images.uiclap.com/capa/ua150463.jpg",
+        url: "https://loja.uiclap.com/titulo/ua150463/",
+        type: 'medium',
+        highlight: true
+      },
+      {
         id: "book_commodities",
         badge: "LIVRO",
         badgeColor: "bg-badge-clients",
