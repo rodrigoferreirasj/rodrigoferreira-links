@@ -73,6 +73,50 @@ export const SECTIONS: Section[] = [
     ]
   },
   {
+    title: "LIVROS",
+    items: [
+      {
+        id: "book_piloto",
+        badge: "LANÇAMENTO",
+        badgeColor: "bg-red-600",
+        title: "A Vida não é um Episódio Piloto",
+        description: "Como influência e comportamento definem resultados comerciais",
+        image: "https://storage.googleapis.com/images.uiclap.com/capa/ua150463.jpg",
+        url: "https://loja.uiclap.com/titulo/ua150463/",
+        type: 'book',
+        uiclapUrl: "https://loja.uiclap.com/titulo/ua150463/",
+        amazonUrl: "https://www.amazon.com.br/Vida-n%C3%A3o-Epis%C3%B3dio-Piloto-comportamento-ebook/dp/B0GM9FPY4K"
+      },
+      {
+        id: "book_commodities",
+        badge: "LIVRO",
+        badgeColor: "bg-badge-clients",
+        title: "Commodities: como ter sucesso vendendo",
+        description: "Aplicação prática no dia a dia comercial",
+        image: "https://storage.googleapis.com/images.uiclap.com/capa/ua48810.jpg",
+        url: "https://loja.uiclap.com/titulo/ua48810",
+        type: 'book',
+        uiclapUrl: "https://loja.uiclap.com/titulo/ua48810",
+        amazonUrl: "https://www.amazon.com.br/Commodities-Como-sucesso-vendendo-Essencial/dp/B0DCTXP7ND/"
+      }
+    ]
+  },
+  {
+    title: "MATERIAIS",
+    items: [
+      {
+        id: "ebook_digital",
+        badge: "E-BOOK",
+        badgeColor: "bg-badge-content",
+        title: "Commodities: 10 dicas práticas para vender",
+        description: "Um ebook essencial para todo vendedor",
+        image: "https://i.ibb.co/svTnCb8J/Capa-Livro-Commodities-v03-c-pia-small.png",
+        url: "https://subscribepage.io/commodities",
+        type: 'medium'
+      }
+    ]
+  },
+  {
     title: "DIAGNÓSTICOS & ASSESSMENTS",
     items: [
       {
@@ -103,42 +147,6 @@ export const SECTIONS: Section[] = [
         description: "Avalie o potencial oculto da sua operação comercial",
         image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=250&h=250&auto=format&fit=crop",
         url: "https://radardevendas360graus.lovable.app/?origem=linkscurtos",
-        type: 'medium'
-      }
-    ]
-  },
-  {
-    title: "MATERIAIS",
-    items: [
-      {
-        id: "book_piloto",
-        badge: "LANÇAMENTO",
-        badgeColor: "bg-red-600",
-        title: "A Vida não é um Episódio Piloto",
-        description: "Como influência e comportamento definem resultados comerciais",
-        image: "https://storage.googleapis.com/images.uiclap.com/capa/ua150463.jpg",
-        url: "https://loja.uiclap.com/titulo/ua150463/",
-        type: 'medium',
-        highlight: true
-      },
-      {
-        id: "book_commodities",
-        badge: "LIVRO",
-        badgeColor: "bg-badge-clients",
-        title: "Commodities: como ter sucesso vendendo",
-        description: "Aplicação prática no dia a dia comercial",
-        image: "https://i.ibb.co/k2dPYgyy/4f83172a-4be5-4a30-9665-5a5389ad66cf.jpg",
-        url: "https://loja.uiclap.com/titulo/ua48810",
-        type: 'medium'
-      },
-      {
-        id: "ebook_digital",
-        badge: "E-BOOK",
-        badgeColor: "bg-badge-content",
-        title: "Commodities: 10 dicas práticas para vender",
-        description: "Um ebook essencial para todo vendedor",
-        image: "https://i.ibb.co/svTnCb8J/Capa-Livro-Commodities-v03-c-pia-small.png",
-        url: "https://subscribepage.io/commodities",
         type: 'medium'
       }
     ]

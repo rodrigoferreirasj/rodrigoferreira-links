@@ -8,7 +8,10 @@ export interface LinkItem {
   icon?: string;
   image?: string;
   url: string;
-  type?: 'large' | 'medium' | 'small' | 'tool';
+  type?: 'large' | 'medium' | 'small' | 'tool' | 'book';
+  highlight?: boolean;
+  amazonUrl?: string;
+  uiclapUrl?: string;
 }
 
 export interface Section {

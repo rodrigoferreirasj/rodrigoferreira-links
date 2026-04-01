@@ -195,7 +195,7 @@ const App: React.FC = () => {
               <h4 className="text-xs font-bold text-gold uppercase tracking-widest">{section.title}</h4>
             </div>
             
-            <div className="flex flex-col gap-3">
+            <div className={section.title === 'LIVROS' ? "grid grid-cols-2 gap-4" : "flex flex-col gap-3"}>
               {section.items.map((item) => (
                 <LinkCard key={item.id} item={item} />
               ))}
