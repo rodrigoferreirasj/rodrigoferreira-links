@@ -17,6 +17,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, adminEmai
     cargo: ''
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [addToNewsletter, setAddToNewsletter] = useState(true);
 
   if (!isOpen) return null;
 
@@ -86,7 +87,8 @@ END:VCARD`;
     setStatus('sending');
 
     // Garante que o evento seja uma string válida antes de enviar
-    const currentEvento = evento || 'Acesso Direto';
+    const baseEvento = evento || 'Acesso Direto';
+    const finalEvento = `${baseEvento} - Newsletter: ${addToNewsletter ? 'sim' : 'não'}`;
 
     try {
       const response = await fetch(`https://formspree.io/f/mnjqllrj`, {
@@ -94,9 +96,9 @@ END:VCARD`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          Evento: currentEvento,
+          Evento: finalEvento,
           _to: adminEmail,
-          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa}) - Origem: ${currentEvento}`
+          _subject: `NOVO LEAD: ${formData.nome} (${formData.empresa}) - Origem: ${finalEvento}`
         })
       });
 
@@ -110,7 +112,7 @@ END:VCARD`;
       }
     } catch (error) {
       console.error("Erro ao enviar lead:", error);
-      const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}%0D%0A- Evento: ${currentEvento}`;
+      const body = `Dados do Lead:%0D%0A- Nome: ${formData.nome}%0D%0A- Email: ${formData.email}%0D%0A- WhatsApp: ${formData.whatsapp}%0D%0A- Empresa: ${formData.empresa}%0D%0A- Cargo: ${formData.cargo}%0D%0A- Evento: ${finalEvento}`;
       window.location.href = `mailto:${adminEmail}?subject=Captura de Lead - Linktree&body=${body}`;
       onClose();
     }
@@ -225,6 +227,22 @@ END:VCARD`;
                       />
                     </div>
                   </div>
+                </div>
+
+                <div className="flex items-center gap-3 mt-4 ml-1 select-none">
+                  <input 
+                    type="checkbox" 
+                    id="newsletter-checkbox"
+                    className="w-5 h-5 rounded border-white/10 bg-main/40 text-gold accent-gold focus:ring-0 focus:ring-offset-0 cursor-pointer"
+                    checked={addToNewsletter}
+                    onChange={e => setAddToNewsletter(e.target.checked)}
+                  />
+                  <label 
+                    htmlFor="newsletter-checkbox"
+                    className="text-xs font-semibold text-white/85 cursor-pointer hover:text-white transition-colors"
+                  >
+                    Adicionar-me à Newsletter do Rodrígo Fêrreira
+                  </label>
                 </div>
 
                 <button 
