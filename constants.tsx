@@ -136,7 +136,7 @@ export const SECTIONS: Section[] = [
         title: "Assessment de Liderança",
         description: "Clareza sobre estilo, impacto e desenvolvimento",
         image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=250&h=250&auto=format&fit=crop",
-        url: "https://radarlideranca.vercel.app/",
+        url: "https://radarlideranca360.vercel.app",
         type: 'medium'
       },
       {
