@@ -161,7 +161,7 @@ export const SECTIONS: Section[] = [
         title: "Ferramenta de Valores",
         description: "Descubra o que guia suas decisões",
         image: "https://cdn-icons-png.flaticon.com/512/1162/1162499.png",
-        url: "https://pontosfortes-values.netlify.app",
+        url: "https://pontosfortes-valores.netlify.app",
         type: 'tool'
       },
       {
