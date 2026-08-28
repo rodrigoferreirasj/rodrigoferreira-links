@@ -1,5 +1,8 @@
 {
   "name": "Rodrigo Fêrreira - Linktree Pro",
   "description": "Uma landing page profissional estilo Linktree para Rodrigo Fêrreira, Treinador de Vendas e Liderança.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

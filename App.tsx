@@ -1,12 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { SECTIONS } from './constants';
+import { Section } from './types';
 import { LinkCard } from './components/LinkCard';
 import { LeadModal } from './components/LeadModal';
+import { fetchLatestBlogArticle } from './utils/blogFeed';
 
 const App: React.FC = () => {
   const [imgSrc, setImgSrc] = useState("https://i.ibb.co/gbtRmLVc/Avatar.png");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sections, setSections] = useState<Section[]>(SECTIONS);
 
   // Função auxiliar para obter e formatar o evento da URL imediatamente
   const getEventoFromURL = () => {
@@ -35,6 +38,37 @@ const App: React.FC = () => {
       setIsModalOpen(true);
     }, 3000);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Busca o último artigo do blog no feed RSS dinamicamente
+  useEffect(() => {
+    let isMounted = true;
+    fetchLatestBlogArticle().then((latestArticle) => {
+      if (!isMounted || !latestArticle) return;
+      setSections((prevSections) =>
+        prevSections.map((section) => ({
+          ...section,
+          items: section.items.map((item) => {
+            if (item.id === 'blog') {
+              return {
+                ...item,
+                title: latestArticle.title,
+                description: latestArticle.description || item.description,
+                url: latestArticle.url,
+                image: latestArticle.image || item.image
+              };
+            }
+            return item;
+          })
+        }))
+      );
+    }).catch((err) => {
+      console.warn("Erro ao buscar último artigo do blog, mantendo dados padrão:", err);
+    });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleImgError = () => {
@@ -188,7 +222,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Dynamic Sections */}
-        {SECTIONS.map((section, sIdx) => (
+        {sections.map((section, sIdx) => (
           <section key={sIdx} className="flex flex-col gap-3">
             <div className="flex items-center gap-2 px-1 mb-1">
               <span className="w-1 h-4 rounded-full bg-gold"></span>
